@@ -1,0 +1,35 @@
+body {
+    font-size: 16px;
+    font-family: Helvetica, Arial, Verdana, sans-serif;
+    text-align: center;
+    margin: auto;
+
+
+    /*margin-top: 20px;*/
+    /*margin-right: 10px;*/
+    /*margin-left: 10px;*/
+    /*margin-bottom: 20px;*/
+}
+
+div {
+    width: 400px;
+    height: 300px;
+    position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    margin: auto;
+}
+
+#cash, #discount, #petrolprice {
+    width: 60px;
+}
+
+input {
+    width: 100px;
+    border: 1px solid #bbb;
+    font-size: 1em;
+    padding: 6px 6px 6px 6px
+}

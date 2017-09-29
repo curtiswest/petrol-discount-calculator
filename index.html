@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="main.css"/>
+   </head>
+    <body>
+        <div>
+            I want to spend $<input type="number" id="cash" placeholder=20 autofocus />,
+            petrol costs <input type="number" id="petrolprice" placeholder=112.9 /> c/L,
+            and my discount is <input type="number" id="discount" placeholder=4 /> c/L.
+
+            <h2>
+            Put in $<span class="result_spend">0.00</span> (<span class="result_litres">0.00</span> litres).
+            </h2>
+            (You gained <span class="petrol_gained">0</span>L of petrol)
+        </div>
+
+        <script src="calc.js"></script>
+
+    </body>
+</html>
