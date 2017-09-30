@@ -2,28 +2,55 @@ body {
     font-size: 16px;
     font-family: Helvetica, Arial, Verdana, sans-serif;
     text-align: center;
+    margin: auto;
 }
 
 div {
-    width: 400px;
-    height: 300px;
-    position: absolute;
-    top:0;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    width: 100vw;
+    margin: 0 auto;
+}
 
-    margin: auto;
+
+h2, h3, h4, h5 {
+    line-height: 18px;
+}
+
+h4 {
+    font-style: italic;
+    font-size: 14px;
+    font-weight: normal;
+    color: #bbb;
+}
+
+input {
+    width: 100px;
+    border: 1px solid #d9d9d9;
+    font-size: 1em;
+    padding: 6px 6px 6px 6px;
+    color: #54bfc3;
+}
+
+footer {
+    margin-top: 40px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #d9d9d9;
+    font-style: italic;
+}
+
+a {
+    color: #bbb;
+    text-decoration: underline;
+}
+
+a:hover {
+    color: #54bfc3;
 }
 
 #cash, #discount, #petrolprice {
     width: 60px;
 }
 
-input {
-    width: 100px;
-    border: 1px solid #bbb;
-    font-size: 1em;
-    padding: 6px 6px 6px 6px;
-    text-align:center;
+.result_spend {
+    color: #54bfc3;
 }

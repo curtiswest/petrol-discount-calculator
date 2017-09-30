@@ -3,31 +3,53 @@ $("#discount").on('input keyup', update_discount_calcs);
 $("#cash").on('input keyup', update_discount_calcs);
 
 function update_discount_calcs() {
-    price = parseInt($("#petrolprice").val());
-    discount = parseInt($("#discount").val());
-    cash = parseInt($("#cash").val());
+    var price = $("#petrolprice").val();
+    var discount = $("#discount").val();
+    var cash = $("#cash").val();
 
-    litres = calc_litres(price, discount, cash);
-    spend = calc_spend(price, litres);
+    var litres = calc_litres(price, discount, cash);
+    var spend = calc_spend(price, litres);
 
-    if (isFinite(litres) && isFinite(spend)) {
+    if (isFinite(price)) {
+        $(".e10_price").html(calc_e10_breakpoint(price).toFixed(1));
+    }
+
+    if (isFinite(litres)) {
         $(".result_litres").html(litres.toFixed(2));
-        $(".result_spend").html(spend.toFixed(2));
 
-        without_discount = calc_litres(price, 0, cash);
-        petrol_gained = litres - without_discount;
-        $(".petrol_gained").html(petrol_gained.toFixed(2));
-    } else {
-        $(".result_litres").html("?");
-        $(".result_spend").html("?");
-        $(".petrol_gained").html("?");
+        var without_discount = calc_litres(price, 0, cash);
+        var petrol_gained = litres - without_discount;
+        if (isFinite(petrol_gained)) {
+            $(".petrol_gained").html(petrol_gained.toFixed(2));
+        }
+    }
+    if (isFinite(spend)) {
+        $(".result_spend").html(spend.toFixed(2));
     }
 }
 
 function calc_litres(price, discount, cash) {
-    return (cash * 100) / (price - discount);
+    if (isNaN(price) || isNaN(discount) || isNaN(cash)) {
+        return 0
+    } else {
+        return (cash * 100) / (price - discount);
+    }
 }
 
 function calc_spend(price, litres) {
-    return (price * litres) / 100;
+    if (isNaN(price) || isNaN(litres)) {
+        return 0
+    } else {
+        return (price * litres) / 100;
+    }
+}
+
+function calc_e10_breakpoint(price) {
+    var petrol_kcal_litre = 7594.0;
+    var ethanol_kcal_litre = 5062.7;
+
+    var ratio = 0.10;
+    var e10_kcal_litre = petrol_kcal_litre * (1-ratio) + ethanol_kcal_litre * ratio;
+
+    return price * (e10_kcal_litre / petrol_kcal_litre);
 }
